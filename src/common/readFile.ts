@@ -11,8 +11,6 @@ export function readFile(encoding: BufferEncoding): string
 
     const filename = process.argv[2];
 
-    
-
     try
     {
         console.log(`File with ${encoding} encoding size: ${getFileSize(filename)} KB`);

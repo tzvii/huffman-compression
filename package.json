@@ -9,7 +9,7 @@
     "build": "tsc && echo '\n*** Project build complete ***\n'"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tzvi Mashiach",
   "license": "ISC",
   "dependencies": {
     "@datastructures-js/priority-queue": "^6.3.0",
