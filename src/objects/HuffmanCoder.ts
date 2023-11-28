@@ -27,8 +27,8 @@ export class HuffmanCoder
         const bitStringBuffer = this.buildBitStringBuffer(bitString);
 
         // Convert the character frequency map to JSON and create a header
-        // with a split_key to separate the JSON from bin data
-        const header = JSONTools.stringify(frequencyMap) + config.splitKey;
+        // with a delimiter to separate the JSON from bin data
+        const header = JSONTools.stringify(frequencyMap) + config.delimiter;
 
         const headerBuffer = Buffer.from(header, config.encoding.ascii);
         const buffer = Buffer.concat([headerBuffer, bitStringBuffer]);
@@ -40,7 +40,7 @@ export class HuffmanCoder
     public decode(data: string): void
     {
         // Split the input data into header and binary data
-        const [header, binData] = data.split(config.splitKey);
+        const [header, binData] = data.split(config.delimiter);
 
         // Parse the JSON-encoded header to obtain the character frequency map
         const freqMap = <{}>JSONTools.parse(header);
