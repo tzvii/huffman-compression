@@ -12,19 +12,19 @@ export class HuffmanCoder
     public encode(data: string): void
     {
         // Create a frequency map for each character in the input data
-        const frequencyMap = this.getCharFrequencyMap(data);
+        const frequencyMap = this.buildFrequencyMap(data);
 
         // Build a Huffman tree with a priority queue based on the character frequency map
         const root = this.buildHuffmanTree(frequencyMap);
 
         // Generate a mapping of characters to Huffman codes
-        const codeMap = this.getCodeMap(root, '', {});
+        const codeMap = this.buildCodeMap(root, '', {});
 
         // Build a bit string using the Huffman codes for the input data
         const bitString = this.buildBitString(data, codeMap);
 
         // Create a buffer representing the bit string
-        const bitStringBuffer = this.createBitStringBuffer(bitString);
+        const bitStringBuffer = this.buildBitStringBuffer(bitString);
 
         // Convert the character frequency map to JSON and create a header
         // with a split_key to separate the JSON from bin data
@@ -58,7 +58,7 @@ export class HuffmanCoder
         this.saveToTxtFolder(text);
     }
 
-    private getCharFrequencyMap(data: string): {[key: string]: number}
+    private buildFrequencyMap(data: string): {[key: string]: number}
     {
         return data.split('').reduce((acc, cur) => 
         {
@@ -90,14 +90,14 @@ export class HuffmanCoder
         return pq.dequeue();
     }
 
-    private getCodeMap(node: HuffmanNode, code: string, map: {}): {[key: string]: string}
+    private buildCodeMap(node: HuffmanNode, code: string, map: {}): {[key: string]: string}
     {
         if (!node.left && !node.right)
             map[node.char] = code;
         else
         {
-            this.getCodeMap(node.left, code + '0', map);
-            this.getCodeMap(node.right, code + '1', map);
+            this.buildCodeMap(node.left, code + '0', map);
+            this.buildCodeMap(node.right, code + '1', map);
         }
         return map;
     }
@@ -119,7 +119,7 @@ export class HuffmanCoder
         return number;
     }
 
-    private createBitStringBuffer(bitString: string): Buffer
+    private buildBitStringBuffer(bitString: string): Buffer
     {
         const byteBuffers: Buffer[] = [];
 

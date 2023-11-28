@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project implements a Huffman encoder and decoder in TypeScript, providing a simple and efficient way to compress and decompress text data using Huffman coding. Huffman coding is a variable-length prefix coding algorithm that assigns variable-length codes to input characters based on their frequencies.
+This project implements a Huffman encoder and decoder in TypeScript, providing a simple and efficient way to compress and decompress text data using Huffman coding. Huffman coding is a lossless, variable-length prefix compression algorithm that assigns variable-length codes to input characters based on their frequencies.
 
 ## Features
 
@@ -55,7 +55,7 @@ Before using the encoder/decoder, make sure you have [Node.js](https://nodejs.or
 To compress a text file using Huffman encoding, run the following command:
 
 ```bash
-npm run encode path/sample-input.txt
+npm run encode sample-input.txt
 ```
 
 - `sample-input.txt`: The path to the input text file.
@@ -67,7 +67,7 @@ npm run encode path/sample-input.txt
 To decompress a Huffman-encoded binary file, run the following command:
 
 ```bash
-npm run decode path/sample-output.bin
+npm run decode sample-output.bin
 ```
 
 - `sample-output.bin`: The path to the Huffman-encoded binary file.
