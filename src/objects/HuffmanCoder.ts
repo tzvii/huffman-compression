@@ -46,7 +46,7 @@ export class HuffmanCoder
         const freqMap = <{}>JSONTools.parse(header);
 
         // Convert binary data to buffers
-        const byteBuffers = Array.from(binData).map(char => Buffer.from(char, config.encoding.ascii));
+        const byteBuffers = this.buildBufferArray(binData);
 
         // Convert buffers to a bit string
         const bitString = byteBuffers.reduce((acc, cur) => acc += this.convertByteBufferToBitString(cur), '');
@@ -132,6 +132,11 @@ export class HuffmanCoder
         }
 
         return Buffer.concat(byteBuffers);
+    }
+
+    private buildBufferArray(binData: string): Buffer[]
+    {
+        return Array.from(binData).map(char => Buffer.from(char, config.encoding.ascii));
     }
 
     private convertByteBufferToBitString(buff: Buffer): string
