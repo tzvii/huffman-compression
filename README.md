@@ -15,16 +15,14 @@ This project implements a Huffman encoder and decoder in TypeScript, providing a
 
 Before you begin, ensure you have met the following requirements:
 
-- [Node.js](https://nodejs.org/) installed
+- Have [Node.js](https://nodejs.org/) installed
 - A package manager such as [npm](https://www.npmjs.com/) (comes with Node.js installation)
-- TypeScript installed:
+- Have TypeScript installed:
    ```bash
    npm i -g typescript
    ```
 
 ### Installation
-
-Before using the encoder/decoder, make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
 1. Clone the repository:
 
